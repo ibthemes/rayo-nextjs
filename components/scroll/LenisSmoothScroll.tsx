@@ -13,13 +13,7 @@ export default function LenisSmoothScroll() {
       typeof window !== "undefined" &&
       /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-    // CRITICAL: Update ScrollTrigger on RAF for smoother iOS performance
-    const raf = (time: number) => {
-      lenis.raf(time);
-      ScrollTrigger.update();
-    };
-
-    // Don't use scrollerProxy on iOS - causes jank
+    // Only use scrollerProxy on non-iOS devices
     if (!isIOS) {
       ScrollTrigger.scrollerProxy(document.body, {
         scrollTop(value) {
@@ -40,16 +34,12 @@ export default function LenisSmoothScroll() {
       });
     }
 
-    // Use lenis.on for scroll updates
-    lenis.on("scroll", () => {
-      ScrollTrigger.update();
-    });
+    lenis.on("scroll", ScrollTrigger.update);
 
-    // Refresh ScrollTrigger after layout changes
     const handleRefresh = () => {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         ScrollTrigger.refresh();
-      }, 100);
+      });
     };
 
     window.addEventListener("resize", handleRefresh);
@@ -58,7 +48,7 @@ export default function LenisSmoothScroll() {
     if (isIOS) {
       setTimeout(() => {
         ScrollTrigger.refresh();
-      }, 500);
+      }, 300);
     }
 
     return () => {
@@ -78,15 +68,14 @@ export default function LenisSmoothScroll() {
     <ReactLenis
       root
       options={{
-        lerp: isIOS ? 0.08 : 0.1, // Slower, smoother for iOS
-        duration: isIOS ? 1.5 : 1.2, // Longer duration reduces jank
+        lerp: isIOS ? 1 : 0.1,
+        duration: isIOS ? 0 : 1.2,
         orientation: "vertical",
         gestureOrientation: "vertical",
-        smoothWheel: true,
+        smoothWheel: !isIOS,
         wheelMultiplier: 1,
-        touchMultiplier: isIOS ? 1.2 : 2, // Gentler touch
-        syncTouch: true,
-        syncTouchLerp: isIOS ? 0.08 : 0.1, // Match lerp value
+        touchMultiplier: 1,
+        syncTouch: !isIOS,
         infinite: false,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       }}

@@ -62,8 +62,8 @@ export default function LenisSmoothScroll() {
     <ReactLenis
       root
       options={{
-        lerp: isIOS ? 0.15 : 0.1,
-        duration: isIOS ? 1.0 : 1.2,
+        lerp: isIOS ? 0.25 : 0.1, // Much faster for iOS
+        duration: isIOS ? 0.8 : 1.2,
         orientation: "vertical",
         gestureOrientation: "vertical",
         smoothWheel: true,

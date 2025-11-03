@@ -160,7 +160,7 @@ export default function Footer1() {
                     text="Buy Now"
                     as={"a"}
                     className="btn btn-anim btn-default btn-small btn-accent slide-right"
-                    href="https://themeforest.net/item/rayo-digital-agency-personal-portfolio-nextjs-template/edit/60468451"
+                    href="https://themeforest.net/item/rayo-digital-agency-personal-portfolio-nextjs-template/60468451"
                     target="_blank"
                   >
                     <i className="ph ph-shopping-cart-simple" />

@@ -70,7 +70,7 @@ export default function PortfolioList() {
               <Link
                 key={item.id}
                 className="mxd-projects-list__item hover-reveal__item"
-                href={`/project-details/${item.id}`}
+                href={`/project-details`}
                 onMouseMove={(e) => handleMouseMove(e, idx)}
                 onMouseLeave={handleMouseLeave}
               >

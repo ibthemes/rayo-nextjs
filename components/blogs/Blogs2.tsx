@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 
 import Image from "next/image";
@@ -71,10 +70,7 @@ export default function Blogs2() {
                   key={featured.id}
                   className="mxd-post post-featured post-featured-v2 radius-l"
                 >
-                  <Link
-                    className="post-featured__thumb"
-                    href={`/blog-article/${featured.id}`}
-                  >
+                  <Link className="post-featured__thumb" href={`/blog-article`}>
                     <Image
                       alt="Featured Post Thumb"
                       src={featured.img}
@@ -103,9 +99,7 @@ export default function Blogs2() {
                     </div>
 
                     <h3 className="post-featured__title">
-                      <Link href={`/blog-article/${featured.id}`}>
-                        {featured.title}
-                      </Link>
+                      <Link href={`/blog-article`}>{featured.title}</Link>
                     </h3>
 
                     <div className="post-featured__excerpt">
@@ -129,7 +123,7 @@ export default function Blogs2() {
                       <article className="mxd-post post-secondary">
                         <Link
                           className="post-secondary__thumb radius-l"
-                          href={`/blog-article/${sp.id}`}
+                          href={`/blog-article`}
                         >
                           <Image
                             alt="Post Simple Thumb"
@@ -170,7 +164,7 @@ export default function Blogs2() {
 
                           <div className="post-secondary__title">
                             <h5>
-                              <Link href={`/blog-article/${sp.id}`}>
+                              <Link href={`/blog-article`}>
                                 <span>{sp.title}</span>
                               </Link>
                             </h5>
@@ -225,7 +219,7 @@ export default function Blogs2() {
                 <Link
                   key={item.title}
                   className="mxd-projects-archive__item"
-                  href={`/blog-article/${item.id}`}
+                  href={`/blog-article`}
                 >
                   <div className="mxd-projects-archive__border" />
                   <div className="mxd-projects-archive__inner">

@@ -30,7 +30,7 @@ export default function Services() {
                         <Link
                           key={i}
                           className="mxd-services-stack__work"
-                          href={`/project-details/${w.id}`}
+                          href={`/project-details`}
                         >
                           <Image
                             className="mxd-services-stack__preview"

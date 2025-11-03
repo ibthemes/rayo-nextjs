@@ -349,7 +349,7 @@ export default function Hero() {
                   {items.map((item, idx) => (
                     <Link
                       key={idx}
-                      href={`/project-details/${item.id}`}
+                      href={`/project-details`}
                       className={item.wrapperClass}
                     >
                       <div

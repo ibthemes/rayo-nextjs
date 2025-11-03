@@ -1,12 +1,9 @@
-"use client";
 import AnimateRotation from "@/components/animation/AnimateRotation";
 import VelocityMarquee from "@/components/animation/VelocityMarquee";
-import VideoModal from "@/components/common/VideoModal";
+import VideoModalButton from "@/components/common/VideoModalButton";
 import Image from "next/image";
-import { useState } from "react";
 
 export default function Hero() {
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <div className="mxd-section mxd-hero-section mxd-hero-fullheight">
@@ -246,23 +243,13 @@ export default function Hero() {
                   <source type="video/ogv" src="video/540x310_video-01.ogv" />
                 </video>
                 <div className="mxd-hero-01__video-btn">
-                  <button
-                    onClick={() => setIsOpen(true)}
-                    className="btn btn-round btn-round-medium btn-accent slide-right anim-no-delay showreel-trigger"
-                  >
-                    <i className="ph-fill ph-play" />
-                  </button>
+                  <VideoModalButton videoSrc="https://vimeo.com/65036292" />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <VideoModal
-        videoSrc="https://vimeo.com/65036292"
-        open={isOpen}
-        setOpen={setIsOpen}
-      />
     </>
   );
 }

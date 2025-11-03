@@ -4,6 +4,63 @@ import Image from "next/image";
 import AnimatedButton from "../animation/AnimatedButton";
 
 export default function Footer1() {
+  const footerNavData = [
+    {
+      title: "Start pages",
+      links: [
+        { label: "Main home", href: "/home-main" },
+        {
+          label: "Software development company",
+          href: "/home-software-development-company",
+        },
+        { label: "Freelancer portfolio", href: "/home-freelancer-portfolio" },
+        { label: "Digital agency", href: "/home-digital-agency" },
+        {
+          label: "Creative design studio",
+          href: "/home-creative-design-studio",
+        },
+        { label: "Personal portfolio", href: "/home-personal-portfolio" },
+        { label: "Web agency", href: "/home-web-agency" },
+        { label: "Creative developer", href: "/home-creative-developer" },
+        { label: "Designer", href: "/home-designer" },
+      ],
+    },
+    {
+      // Combined column: Portfolio + Insights Pages
+      groups: [
+        {
+          title: "Portfolio",
+          links: [
+            { label: "Works simple", href: "/works-simple" },
+            { label: "Works masonry", href: "/works-masonry" },
+            { label: "Project details", href: "/project-details" },
+          ],
+        },
+        {
+          title: "Insights pages",
+          links: [
+            { label: "Blog standard", href: "/blog-standard" },
+            { label: "Blog creative", href: "/blog-creative" },
+            { label: "Single post", href: "/blog-article" },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Inner pages",
+      links: [
+        { label: "About me", href: "/about-me" },
+        { label: "About us", href: "/about-us" },
+        { label: "Services", href: "/services" },
+        { label: "Our team", href: "/team" },
+        { label: "Pricing plans", href: "/pricing" },
+        { label: "Frequently asked questions", href: "/faq" },
+        { label: "404 error page", href: "/404" },
+        { label: "Contact", href: "/contact" },
+      ],
+    },
+  ];
+
   return (
     <footer className="mxd-demo-footer">
       {/* Footer Background Start */}
@@ -103,7 +160,7 @@ export default function Footer1() {
                     text="Buy Now"
                     as={"a"}
                     className="btn btn-anim btn-default btn-small btn-accent slide-right"
-                    href="https://themeforest.net/user/ib-themes/portfolio"
+                    href="https://themeforest.net/item/rayo-digital-agency-personal-portfolio-nextjs-template/edit/60468451"
                     target="_blank"
                   >
                     <i className="ph ph-shopping-cart-simple" />
@@ -122,263 +179,66 @@ export default function Footer1() {
                 <nav className="mxd-demo-footer__nav">
                   <div className="container-fluid p-0">
                     <div className="row g-0">
-                      <div className="col-12 col-md-4 mxd-grid-item mxd-footer-nav__item">
-                        <div className="mxd-footer-nav__block">
-                          <div className="mxd-footer-nav__title anim-uni-in-up">
-                            <p className="t-140 t-bright t-caption">
-                              Start pages
-                            </p>
-                          </div>
-                          <div className="mxd-footer-nav__list">
-                            <ul>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-main`}
-                                  target="_blank"
-                                >
-                                  Main home
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-software-development-company`}
-                                  target="_blank"
-                                >
-                                  Software development company
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-freelancer-portfolio`}
-                                  target="_blank"
-                                >
-                                  Freelanser portfolio
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-digital-agency`}
-                                  target="_blank"
-                                >
-                                  Digital agency
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-creative-design-studio`}
-                                  target="_blank"
-                                >
-                                  Creative design studio
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-personal-portfolio`}
-                                  target="_blank"
-                                >
-                                  Personal portfolio
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-web-agency`}
-                                  target="_blank"
-                                >
-                                  Web agency
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-creative-developer`}
-                                  target="_blank"
-                                >
-                                  Creative developer
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/home-designer`}
-                                  target="_blank"
-                                >
-                                  Designer
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
+                      {footerNavData.map((section, index) => (
+                        <div
+                          key={index}
+                          className="col-12 col-md-4 mxd-grid-item mxd-footer-nav__item"
+                        >
+                          {/* Check if this section contains grouped blocks */}
+                          {section.groups ? (
+                            section.groups.map((group, gIndex) => (
+                              <div
+                                key={gIndex}
+                                className="mxd-footer-nav__block"
+                              >
+                                <div className="mxd-footer-nav__title anim-uni-in-up">
+                                  <p className="t-140 t-bright t-caption">
+                                    {group.title}
+                                  </p>
+                                </div>
+                                <div className="mxd-footer-nav__list">
+                                  <ul>
+                                    {group.links.map((link, lIndex) => (
+                                      <li key={lIndex}>
+                                        <Link
+                                          className="anim-uni-in-up"
+                                          href={link.href}
+                                          target="_blank"
+                                        >
+                                          {link.label}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="mxd-footer-nav__block">
+                              <div className="mxd-footer-nav__title anim-uni-in-up">
+                                <p className="t-140 t-bright t-caption">
+                                  {section.title}
+                                </p>
+                              </div>
+                              <div className="mxd-footer-nav__list">
+                                <ul>
+                                  {section.links.map((link, lIndex) => (
+                                    <li key={lIndex}>
+                                      <Link
+                                        className="anim-uni-in-up"
+                                        href={link.href}
+                                        target="_blank"
+                                      >
+                                        {link.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      </div>
-                      <div className="col-12 col-md-4 mxd-grid-item mxd-footer-nav__item">
-                        <div className="mxd-footer-nav__block">
-                          <div className="mxd-footer-nav__title anim-uni-in-up">
-                            <p className="t-140 t-bright t-caption">
-                              Portfolio
-                            </p>
-                          </div>
-                          <div className="mxd-footer-nav__list">
-                            <ul>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/works-simple`}
-                                  target="_blank"
-                                >
-                                  Works simple
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/works-masonry`}
-                                  target="_blank"
-                                >
-                                  Works masonry
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/project-details/1`}
-                                  target="_blank"
-                                >
-                                  Project details
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="mxd-footer-nav__block">
-                          <div className="mxd-footer-nav__title anim-uni-in-up">
-                            <p className="t-140 t-bright t-caption">
-                              Insights pages
-                            </p>
-                          </div>
-                          <div className="mxd-footer-nav__list">
-                            <ul>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/blog-standard`}
-                                  target="_blank"
-                                >
-                                  Blog standard
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/blog-creative`}
-                                  target="_blank"
-                                >
-                                  Blog creative
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/blog-article/1`}
-                                  target="_blank"
-                                >
-                                  Single post
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-12 col-md-4 mxd-grid-item mxd-footer-nav__item">
-                        <div className="mxd-footer-nav__block">
-                          <div className="mxd-footer-nav__title anim-uni-in-up">
-                            <p className="t-140 t-bright t-caption">
-                              Inner pages
-                            </p>
-                          </div>
-                          <div className="mxd-footer-nav__list">
-                            <ul>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/about-me`}
-                                  target="_blank"
-                                >
-                                  About me
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/about-us`}
-                                  target="_blank"
-                                >
-                                  About us
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/services`}
-                                  target="_blank"
-                                >
-                                  Services
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/team`}
-                                  target="_blank"
-                                >
-                                  Our team
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/pricing`}
-                                  target="_blank"
-                                >
-                                  Pricing plans
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/faq`}
-                                  target="_blank"
-                                >
-                                  Frequently asked questions
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/404`}
-                                  target="_blank"
-                                >
-                                  404 error page
-                                </Link>
-                              </li>
-                              <li>
-                                <Link
-                                  className="anim-uni-in-up"
-                                  href={`/contact`}
-                                  target="_blank"
-                                >
-                                  Contact
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </nav>
@@ -387,13 +247,13 @@ export default function Footer1() {
                 <div className="mxd-demo-footer__promo">
                   <div className="mxd-footer-promo__title anim-uni-in-up">
                     <p className="t-140 t-bright t-caption">
-                      More by Mix Design:
+                      More by ib-themes:
                     </p>
                   </div>
                   <div className="mxd-footer-promo__list">
                     <a
                       className="mxd-footer-promo__item"
-                      href="https://themeforest.net/user/ib-themes/portfolio"
+                      href="https://themeforest.net/item/resonance-multipurpose-onemulti-page-react-nextjs-template/53612924"
                       target="_blank"
                     >
                       <Image
@@ -401,16 +261,15 @@ export default function Footer1() {
                         alt="Blayden - Personal Portfolio & Resume React Nextjs Template"
                         width={180}
                         height={180}
-                        src="/img/demo/icon-blayden.webp"
+                        src="/img/demo/icon-blayden.png"
                       />
                       <span className="mxd-footer-promo__link anim-uni-in-up">
-                        Blayden - Personal Portfolio &amp; Resume React Nextjs
-                        Template
+                        Resonance - Multipurpose Creative NextJs Templates
                       </span>
                     </a>
                     <a
                       className="mxd-footer-promo__item"
-                      href="https://themeforest.net/user/ib-themes/portfolio"
+                      href="https://themeforest.net/item/sandbox-modern-multipurpose-tailwind-css-template/51340309"
                       target="_blank"
                     >
                       <Image
@@ -418,15 +277,15 @@ export default function Footer1() {
                         alt="Ignite - Portfolio and Landing Page Template"
                         width={180}
                         height={180}
-                        src="/img/demo/icon-ignite.webp"
+                        src="/img/demo/icon-ignite.png"
                       />
                       <span className="mxd-footer-promo__link anim-uni-in-up">
-                        Ignite - Portfolio and Landing Page Template
+                        Sandbox - Tailwind CSS Modern & Multipurpose Template
                       </span>
                     </a>
                     <a
                       className="mxd-footer-promo__item"
-                      href="https://themeforest.net/user/ib-themes/portfolio"
+                      href="https://themeforest.net/item/gotrip-travel-tour-online-booking-nextjs-template/44047013"
                       target="_blank"
                     >
                       <Image
@@ -434,11 +293,10 @@ export default function Footer1() {
                         alt="Braxton - Personal Portfolio & Resume React Nextjs Template"
                         width={500}
                         height={500}
-                        src="/img/demo/icon-braxton.webp"
+                        src="/img/demo/icon-braxton.png"
                       />
                       <span className="mxd-footer-promo__link anim-uni-in-up">
-                        Braxton - Personal Portfolio &amp; Resume React Nextjs
-                        Template
+                        GoTrip - Travel & Tour Agency React NextJs Template
                       </span>
                     </a>
                   </div>

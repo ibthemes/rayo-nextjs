@@ -65,7 +65,7 @@ export default function Projects() {
                   >
                     <Link
                       className="mxd-project-item__media masonry-media"
-                      href={`/project-details/${project.id}`}
+                      href={`/project-details`}
                     >
                       <BackgroundParallax
                         className={`mxd-project-item__preview masonry-preview ${project.previewClass} parallax-img-small`}
@@ -85,7 +85,7 @@ export default function Projects() {
                       <div className="mxd-project-item__name">
                         <Link
                           className={project.anim}
-                          href={`/project-details/${project.id}`}
+                          href={`/project-details`}
                         >
                           <span>{project.title}</span> {project.description}
                         </Link>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Rayo - Digital Agency & Personal Portfolio React Nextjs Template",
 };
-export default function page() {
+export default function AboutMePage() {
   return (
     <>
       <main

@@ -1,14 +1,15 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import VideoModal from "@/components/common/VideoModal";
+
+import VideoModalButton from "@/components/common/VideoModalButton";
 
 export default function Hero() {
   const fadeOutRefs = useRef<Array<HTMLDivElement | null>>([]);
   const scaleOutRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     // Fade Out Animation
     fadeOutRefs.current.forEach((el) => {
@@ -125,12 +126,11 @@ export default function Hero() {
                   <source type="video/ogv" src="video/540x310_video-01.ogv" />
                 </video>
                 <div className="mxd-hero-08__video-btn">
-                  <button
-                    onClick={() => setIsOpen(true)}
-                    className="btn btn-round btn-round-medium btn-accent slide-right anim-no-delay showreel-trigger"
-                  >
-                    <i className="ph-fill ph-play" />
-                  </button>
+                  <VideoModalButton
+                    videoSrc="https://vimeo.com/65036292"
+                    iconClassName="ph-fill ph-play"
+                    buttonClassName="btn btn-round btn-round-medium btn-accent slide-right anim-no-delay showreel-trigger"
+                  />
                 </div>
               </div>
             </div>
@@ -138,11 +138,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <VideoModal
-        videoSrc="https://vimeo.com/65036292"
-        open={isOpen}
-        setOpen={setIsOpen}
-      />
     </>
   );
 }

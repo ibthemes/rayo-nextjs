@@ -59,7 +59,7 @@ export default function Blogs({
                   >
                     <Link
                       className="mxd-blog-preview__media"
-                      href={`/blog-article/${item.id}`}
+                      href={`/blog-article`}
                     >
                       <BackgroundParallax
                         className={`mxd-blog-preview__image ${item.imageClass} parallax-img-small`}
@@ -87,10 +87,7 @@ export default function Blogs({
                     </Link>
 
                     <div className="mxd-blog-preview__data">
-                      <Link
-                        className="anim-uni-in-up"
-                        href={`/blog-article/${item.id}`}
-                      >
+                      <Link className="anim-uni-in-up" href={`/blog-article`}>
                         {item.title.before ?? ""}{" "}
                         {item.title.highlight ? (
                           <span>{item.title.highlight}</span>

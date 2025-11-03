@@ -9,76 +9,69 @@ export default function LenisSmoothScroll() {
   useEffect(() => {
     if (!lenis) return;
 
-    const isIOS =
-      typeof window !== "undefined" &&
-      /iPad|iPhone|iPod/.test(navigator.userAgent);
+    // Create scrollerProxy for better ScrollTrigger integration
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        if (arguments.length && value !== undefined) {
+          lenis.scrollTo(value, { immediate: true });
+        }
+        return lenis.scroll;
+      },
+      scrollLeft(value) {
+        if (arguments.length && value !== undefined) {
+          lenis.scrollTo(value, { immediate: true });
+        }
+        return lenis.scroll;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+      pinType: document.body.style.transform ? "transform" : "fixed",
+    });
 
-    // Only use scrollerProxy on non-iOS devices
-    if (!isIOS) {
-      ScrollTrigger.scrollerProxy(document.body, {
-        scrollTop(value) {
-          if (arguments.length && value !== undefined) {
-            lenis.scrollTo(value, { immediate: true });
-          }
-          return lenis.scroll;
-        },
-        getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
-          };
-        },
-        pinType: document.body.style.transform ? "transform" : "fixed",
-      });
-    }
+    // Ensure scrollbar is visible and working
+    document.body.style.overflow = "auto";
 
+    // Update ScrollTrigger when Lenis scrolls
     lenis.on("scroll", ScrollTrigger.update);
 
+    // Centralized refresh handler for all animations
     const handleRefresh = () => {
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
-      });
-    };
-
-    window.addEventListener("resize", handleRefresh);
-
-    // Initial refresh for iOS
-    if (isIOS) {
+      // Small delay to ensure all components are ready
       setTimeout(() => {
         ScrollTrigger.refresh();
-      }, 300);
-    }
+      }, 100);
+    };
+
+    // Handle window resize
+    const handleResize = () => {
+      handleRefresh();
+    };
+
+    // Listen for ScrollTrigger refresh events
+    ScrollTrigger.addEventListener("refresh", handleRefresh);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleRefresh);
-      if (!isIOS) {
-        ScrollTrigger.scrollerProxy(document.body, {});
-      }
+      window.removeEventListener("resize", handleResize);
+      ScrollTrigger.removeEventListener("refresh", handleRefresh);
+      // Revert scrollerProxy
+      ScrollTrigger.scrollerProxy(document.body, {});
+      // Reset body overflow
       document.body.style.overflow = "";
     };
   }, [lenis]);
-
-  const isIOS =
+  // return null for ios
+  if (
     typeof window !== "undefined" &&
-    /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-  return (
-    <ReactLenis
-      root
-      options={{
-        lerp: isIOS ? 1 : 0.1,
-        duration: isIOS ? 0 : 1.2,
-        orientation: "vertical",
-        gestureOrientation: "vertical",
-        smoothWheel: !isIOS,
-        wheelMultiplier: 1,
-        touchMultiplier: 1,
-        syncTouch: !isIOS,
-        infinite: false,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      }}
-    />
-  );
+    /iPad|iPhone|iPod/.test(navigator.userAgent)
+  ) {
+    return null;
+  }
+  return <ReactLenis root />;
 }

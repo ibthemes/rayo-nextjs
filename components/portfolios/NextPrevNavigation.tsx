@@ -14,13 +14,13 @@ export default function NextPrevNavigation() {
                 text="Prev"
                 as={Link}
                 className="btn btn-anim btn-line-small btn-muted anim-no-delay slide-left"
-                href={`/project-details/1`}
+                href={`/project-details`}
               >
                 <i className="ph ph-arrow-left" />
               </AnimatedButton>
               <Link
                 className="mxd-project__link anim-uni-in-up"
-                href={`/project-details/1`}
+                href={`/project-details`}
               >
                 <span>Mobile app design</span>
               </Link>
@@ -30,13 +30,13 @@ export default function NextPrevNavigation() {
                 text="Next"
                 as={Link}
                 className="btn btn-anim btn-line-small btn-muted anim-no-delay slide-right"
-                href={`/project-details/1`}
+                href={`/project-details`}
               >
                 <i className="ph ph-arrow-right" />
               </AnimatedButton>
               <Link
                 className="mxd-project__link anim-uni-in-up"
-                href={`/project-details/1`}
+                href={`/project-details`}
               >
                 <span>AI experiments</span>
               </Link>

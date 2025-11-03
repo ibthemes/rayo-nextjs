@@ -16,7 +16,7 @@ export default function Projects() {
               <Link
                 key={idx}
                 className="mxd-projects-list__item hover-reveal__item"
-                href={`/project-details/${project.id}`}
+                href={`/project-details`}
               >
                 <div className="mxd-projects-list__border anim-uni-in-up" />
 

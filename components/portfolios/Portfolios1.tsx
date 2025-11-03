@@ -77,7 +77,7 @@ export default function Portfolios1() {
                   <Link
                     key={s.id}
                     className="mxd-projects-stack__inner justify-between"
-                    href={`/project-details/${s.id}`}
+                    href={`/project-details`}
                   >
                     <div className="mxd-projects-stack__image">
                       <Image

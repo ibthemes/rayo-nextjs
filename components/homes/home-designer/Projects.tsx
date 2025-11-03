@@ -18,7 +18,7 @@ export default function Projects() {
                 <Link
                   key={idx}
                   className={`mxd-projects-stack__inner ${project.justify}`}
-                  href={`/project-details/${project.id}`}
+                  href={`/project-details`}
                 >
                   <div className="mxd-projects-stack__image">
                     <Image

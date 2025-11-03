@@ -37,7 +37,7 @@ export default function PortfolioMasonry() {
                   >
                     <Link
                       className="mxd-project-item__media masonry-media"
-                      href={`/project-details/${item.id}`}
+                      href={`/project-details`}
                     >
                       <BackgroundParallax
                         className={`mxd-project-item__preview masonry-preview ${item.previewClass} parallax-img-small`}
@@ -55,7 +55,7 @@ export default function PortfolioMasonry() {
                     </Link>
                     <div className="mxd-project-item__promo masonry-promo">
                       <div className="mxd-project-item__name">
-                        <Link href={`/project-details/${item.id}`}>
+                        <Link href={`/project-details`}>
                           <span>{item.title}</span> {item.description}
                         </Link>
                       </div>

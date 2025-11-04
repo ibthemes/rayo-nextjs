@@ -1,9 +1,5 @@
-import MobileMenu from "@/components/headers/MobileMenu";
 import "../public/css/styles.css";
-import Header1 from "@/components/headers/Header1";
-import InitScroll from "@/components/scroll/InitScroll";
-import LenisSmoothScroll from "@/components/scroll/LenisSmoothScroll";
-import ScrollTop from "@/components/scroll/ScrollTop";
+import ClientLayout from "@/components/layout/ClientLayout";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Rayo - Digital Agency & Personal Portfolio React Nextjs Template",
@@ -29,12 +25,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: setColorSchemeScript }} />
       </head>
       <body>
-        <MobileMenu />
-        <Header1 />
-        {children}
-        <InitScroll />
-        <ScrollTop />
-        <LenisSmoothScroll />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

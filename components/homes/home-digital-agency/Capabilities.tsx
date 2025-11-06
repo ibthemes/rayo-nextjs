@@ -61,7 +61,6 @@ export default function Capabilities() {
                   <div className="mxd-section-title__hrcontrols anim-uni-in-up">
                     <AnimatedButton
                       text="Works"
-                      as={Link}
                       className="btn btn-anim btn-default btn-outline slide-right-up"
                       href={`/works-masonry`}
                     >

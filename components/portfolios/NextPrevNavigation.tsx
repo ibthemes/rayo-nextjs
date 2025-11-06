@@ -12,7 +12,6 @@ export default function NextPrevNavigation() {
             <div className="col-6 mxd-project__navitem left mxd-grid-item no-margin anim-uni-in-up">
               <AnimatedButton
                 text="Prev"
-                as={Link}
                 className="btn btn-anim btn-line-small btn-muted anim-no-delay slide-left"
                 href={`/project-details`}
               >
@@ -28,7 +27,6 @@ export default function NextPrevNavigation() {
             <div className="col-6 mxd-project__navitem right mxd-grid-item no-margin anim-uni-in-up">
               <AnimatedButton
                 text="Next"
-                as={Link}
                 className="btn btn-anim btn-line-small btn-muted anim-no-delay slide-right"
                 href={`/project-details`}
               >

@@ -119,7 +119,6 @@ export default function Hero() {
                 </p>
                 <AnimatedButton
                   text="Explore"
-                  as={Link}
                   className="btn btn-anim btn-default btn-outline slide-right-up"
                   href={`/works-simple`}
                 >

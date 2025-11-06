@@ -60,7 +60,6 @@ export default function About() {
                     <div className="mxd-paragraph__controls anim-uni-in-up">
                       <AnimatedButton
                         text="Let's Meet Closer"
-                        as={Link}
                         className="btn btn-anim btn-default btn-outline slide-right-up"
                         href={`/about-us`}
                       >

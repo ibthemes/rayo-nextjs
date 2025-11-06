@@ -311,7 +311,7 @@ export default function Footer1() {
           <div className="mxd-demo-footer__mixdesign mxd-grid-item no-margin">
             <a
               className="anim-uni-in-up"
-              href="https://themeforest.net/user/ib-themes/portfolio"
+              href="https://themeforest.net/item/rayo-digital-agency-personal-portfolio-nextjs-template/60468451"
               target="_blank"
             >
               <svg

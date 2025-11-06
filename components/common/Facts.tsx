@@ -104,7 +104,6 @@ export default function Facts() {
                         <div className="mxd-stats-cards__btngroup">
                           <AnimatedButton
                             text={item.button.text}
-                            as={Link}
                             className={item.button.btnClass}
                             href={item.button.href}
                           >

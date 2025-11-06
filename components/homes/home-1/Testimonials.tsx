@@ -135,7 +135,6 @@ export default function Testimonials() {
                               <p className="anim-uni-in-up">{item.text}</p>
                               <AnimatedButton
                                 text="Project Page"
-                                as={Link}
                                 className="btn btn-anim btn-default btn-small btn-outline slide-right-up anim-uni-in-up"
                                 href={item.projectPage}
                               >

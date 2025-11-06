@@ -35,7 +35,6 @@ export default function About() {
                     <div className="mxd-manifest__controls">
                       <AnimatedButton
                         text="About Me"
-                        as={Link}
                         className="btn btn-anim btn-default btn-outline slide-right-up anim-uni-in-up"
                         href={`/about-me`}
                       >

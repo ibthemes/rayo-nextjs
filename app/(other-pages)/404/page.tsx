@@ -53,7 +53,6 @@ export default function NotFoundPage() {
                     <div className="row g-0">
                       <div className="col-12 col-xl-6 mxd-grid-item no-margin">
                         <AnimatedButton
-                          as={Link}
                           className="btn btn-anim btn-default btn-accent slide-right-up"
                           text="Let's Go Home"
                           href="/index-main"

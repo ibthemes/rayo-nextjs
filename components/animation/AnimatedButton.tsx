@@ -7,11 +7,14 @@ import {
   useState,
   useEffect,
 } from "react";
+import Link from "next/link";
 
 type OwnProps = {
   text: string;
   className?: string;
   children?: React.ReactNode;
+  href?: string;
+  target?: string;
 };
 
 type PolyProps<As extends ElementType> = OwnProps &
@@ -35,10 +38,28 @@ export default function AnimatedButton<As extends ElementType = "div">(
     text,
     children,
     position = "next",
+    href,
+    target,
     ...rest
   } = props as PolyProps<ElementType>;
 
-  const Tag = (as || "div") as ElementType;
+  // Determine the tag to use
+  // If href is provided and it's internal (starts with /), use Link
+  // If href is provided and external or target="_blank", use 'a'
+  // Otherwise use the specified 'as' or default to 'div'
+  let Tag: ElementType;
+  let isInternalLink = false;
+
+  if (href) {
+    if (href.startsWith("/") && !target) {
+      Tag = Link;
+      isInternalLink = true;
+    } else {
+      Tag = "a";
+    }
+  } else {
+    Tag = (as || "div") as ElementType;
+  }
 
   const [play, setPlay] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -48,10 +69,27 @@ export default function AnimatedButton<As extends ElementType = "div">(
     setIsMounted(true);
   }, []);
 
+  // Build props based on tag type
+  const tagProps = {
+    className: `btn-anim ${className}`,
+    "aria-label": text,
+    ...(href && !isInternalLink ? { href, target } : {}),
+    ...(isInternalLink ? { href } : {}),
+    ...rest,
+  };
+
+  const animatedTagProps = {
+    ...tagProps,
+    className: `btn-anim ${className} ${play ? "play" : ""}`,
+    onMouseEnter: () => setPlay(true),
+    onAnimationEnd: () => setPlay(false),
+    onMouseLeave: () => setPlay(false),
+  };
+
   // Prevent hydration mismatch by rendering static content on server
   if (!isMounted) {
     return (
-      <Tag className={`btn-anim ${className}`} aria-label={text} {...rest}>
+      <Tag {...tagProps}>
         {position === "previous" ? <> {children}</> : null}
         <span className="btn-caption">
           <div className="btn-anim__block">{text}</div>
@@ -66,14 +104,7 @@ export default function AnimatedButton<As extends ElementType = "div">(
 
   return (
     <>
-      <Tag
-        className={`btn-anim ${className} ${play ? "play" : ""}`}
-        onMouseEnter={() => setPlay(true)}
-        onAnimationEnd={() => setPlay(false)}
-        onMouseLeave={() => setPlay(false)}
-        aria-label={text}
-        {...rest}
-      >
+      <Tag {...animatedTagProps}>
         {position === "previous" ? <> {children}</> : null}
         <span className="btn-caption">
           <div className="btn-anim__block">{letters}</div>

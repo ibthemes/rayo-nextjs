@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-
 import { useEffect, useState } from "react";
 import AnimatedButton from "../animation/AnimatedButton";
 import { usePathname } from "next/navigation";
@@ -98,9 +97,8 @@ export default function Header1() {
         {pathname == "/" || pathname == "/preview" ? (
           <AnimatedButton
             text="Purchase"
-            as={"a"}
             className="btn btn-anim btn-default btn-mobile-icon btn-outline slide-right"
-            href="https://themeforest.net/item/rayo-digital-agency-personal-portfolio-nextjs-template/60468451"
+            href="https://themeforest.net/user/ib-themes/portfolio"
             target="_blank"
           >
             <i className="ph-bold ph-shopping-cart-simple" />
@@ -108,10 +106,8 @@ export default function Header1() {
         ) : (
           <AnimatedButton
             text="Say Hello"
-            as={Link}
             className="btn btn-anim btn-default btn-mobile-icon btn-outline slide-right"
             href="/contact"
-            target="_blank"
           >
             <i className="ph-bold ph-arrow-up-right" />
           </AnimatedButton>

@@ -121,7 +121,6 @@ export default function Footer2({ text = "rayosttudio" }: { text?: string }) {
                       <AnimatedButton
                         href={item.href}
                         text={item.label}
-                        as={Link}
                         className="footer-nav__link btn-anim"
                       />
 

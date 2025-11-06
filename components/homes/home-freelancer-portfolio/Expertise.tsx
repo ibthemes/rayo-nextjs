@@ -54,7 +54,6 @@ export default function Expertise() {
                   <div className="mxd-section-title__hrcontrols anim-uni-in-up">
                     <AnimatedButton
                       text="All Services"
-                      as={Link}
                       className="btn btn-anim btn-default btn-outline slide-right-up"
                       href={`/services`}
                     >

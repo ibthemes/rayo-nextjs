@@ -34,7 +34,6 @@ export default function Blogs({
                   <div className="mxd-section-title__hrcontrols anim-uni-in-up">
                     <AnimatedButton
                       text="All Articles"
-                      as={Link}
                       className="btn btn-anim btn-default btn-outline slide-right-up"
                       href={`/blog-standard`}
                     >

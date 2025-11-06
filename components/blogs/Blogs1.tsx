@@ -196,7 +196,6 @@ export default function Blogs1() {
                     <div className="post-simple__btn">
                       <AnimatedButton
                         className="btn btn-anim btn-default btn-outline slide-right-up"
-                        as={Link}
                         text="Read More"
                         href={`/blog-article`}
                       >

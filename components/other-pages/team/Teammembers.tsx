@@ -38,7 +38,6 @@ export default function Teammembers() {
                             <div className="mxd-section-title__controls anim-uni-in-up">
                               <AnimatedButton
                                 className="btn btn-anim btn-default btn-outline slide-right-up"
-                                as={Link}
                                 text="View Works"
                                 href={`/works-simple`}
                               >

@@ -87,7 +87,6 @@ export default function About() {
                         </AnimatedButton>
                         <AnimatedButton
                           text="Let's Meet Closer"
-                          as={Link}
                           className="btn btn-anim btn-default btn-outline slide-right-up"
                           href={`/about-me`}
                         >

@@ -150,7 +150,7 @@ export default function MobileMenu() {
                             >
                               <AnimatedButton
                                 text={item.title}
-                                as={"span"}
+                                as="span"
                                 className="main-menu__link btn btn-anim"
                               ></AnimatedButton>
                               <svg
@@ -194,7 +194,6 @@ export default function MobileMenu() {
                             {item.href ? (
                               <AnimatedButton
                                 text={item.title}
-                                as={Link}
                                 className="main-menu__link btn btn-anim"
                                 href={item.href}
                               ></AnimatedButton>

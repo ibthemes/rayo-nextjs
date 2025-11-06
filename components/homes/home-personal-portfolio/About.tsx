@@ -25,7 +25,6 @@ export default function About() {
                       <div className="mxd-btngroup centered">
                         <AnimatedButton
                           text="My Works"
-                          as={Link}
                           className="btn btn-anim btn-default btn-accent slide-right-up"
                           href={`/works-masonry`}
                         >

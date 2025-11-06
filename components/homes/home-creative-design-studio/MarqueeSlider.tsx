@@ -30,7 +30,6 @@ export default function MarqueeSlider() {
                       <div className="mxd-section-title__controls">
                         <AnimatedButton
                           text="Our Team"
-                          as={Link}
                           className="btn btn-anim btn-default btn-outline opposite slide-right-up"
                           href={`/team`}
                         >
@@ -84,7 +83,6 @@ export default function MarqueeSlider() {
                       <div className="mxd-section-title__controls">
                         <AnimatedButton
                           text="Our Team"
-                          as={Link}
                           className="btn btn-anim btn-default btn-outline opposite slide-right-up"
                           href={`/team`}
                         >

@@ -41,7 +41,6 @@ export default function MarqueeSlider3() {
                       <div className="mxd-section-title__controls">
                         <AnimatedButton
                           text="Meet Our Team"
-                          as={Link}
                           className="btn btn-anim btn-default btn-outline opposite slide-right-up"
                           href={`/team`}
                         >
@@ -93,7 +92,6 @@ export default function MarqueeSlider3() {
                       <div className="mxd-section-title__controls">
                         <AnimatedButton
                           text="Meet Our Team"
-                          as={Link}
                           className="btn btn-anim btn-default btn-outline opposite slide-right-up"
                           href={`/team`}
                         >
@@ -137,7 +135,6 @@ export default function MarqueeSlider3() {
                       <div className="mxd-section-title__controls">
                         <AnimatedButton
                           text="Meet Our Team"
-                          as={Link}
                           className="btn btn-anim btn-default btn-outline opposite slide-right-up"
                           href={`/team`}
                         >
@@ -189,7 +186,6 @@ export default function MarqueeSlider3() {
                       <div className="mxd-section-title__controls">
                         <AnimatedButton
                           text="Meet Our Team"
-                          as={Link}
                           className="btn btn-anim btn-default btn-outline opposite slide-right-up"
                           href={`/team`}
                         >

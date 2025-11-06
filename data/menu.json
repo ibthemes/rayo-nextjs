@@ -24,7 +24,7 @@
     "submenu": [
       { "label": "Portfolio", "href": "/works-simple" },
       { "label": "Works masonry", "href": "/works-masonry" },
-      { "label": "Project details", "href": "/project-details/1" }
+      { "label": "Project details", "href": "/project-details" }
     ]
   },
   {
@@ -45,7 +45,7 @@
     "submenu": [
       { "label": "Blog standard", "href": "/blog-standard" },
       { "label": "Blog creative", "href": "/blog-creative" },
-      { "label": "Single post", "href": "/blog-article/1" }
+      { "label": "Single post", "href": "/blog-article" }
     ]
   },
   {

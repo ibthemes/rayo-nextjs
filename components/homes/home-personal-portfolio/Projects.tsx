@@ -41,7 +41,6 @@ export default function Projects() {
                             <div className="mxd-section-title__controls anim-uni-in-up">
                               <AnimatedButton
                                 text="See All"
-                                as={Link}
                                 className="btn btn-anim btn-default btn-outline slide-right-up"
                                 href={`/works-simple`}
                               >

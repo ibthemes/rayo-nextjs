@@ -35,7 +35,6 @@ export default function Cta() {
                 <div className="mxd-promo__controls anim-uni-in-up">
                   <AnimatedButton
                     text="Contact Me"
-                    as={Link}
                     className="btn btn-anim btn-default btn-large btn-additional slide-right-up"
                     href={`/contact`}
                   >
